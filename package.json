@@ -1,0 +1,36 @@
+{
+  "name": "pyop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "dev:api": "tsx watch server/dev.ts",
+    "dev:web": "npm run dev --prefix apps/web",
+    "test": "vitest run",
+    "test:web": "npm test --prefix apps/web",
+    "lint": "eslint api server packages/contracts tests scripts",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write api server packages/contracts tests scripts package.json tsconfig.json vitest.config.ts eslint.config.js vercel.json",
+    "format:check": "prettier --check api server packages/contracts tests scripts package.json tsconfig.json vitest.config.ts eslint.config.js vercel.json",
+    "build:api": "esbuild api/health.ts api/benchmarks.ts api/benchmarks/run.ts --bundle --platform=node --target=node20 --format=esm --outdir=.api-build --outbase=. && node scripts/check-api-build.mjs",
+    "build": "npm run typecheck && npm run build:api && npm run build --prefix apps/web"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/node": "^22.10.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.19.0",
+    "typescript": "~5.7.3",
+    "typescript-eslint": "~8.22.0",
+    "vitest": "^3.2.0"
+  }
+}

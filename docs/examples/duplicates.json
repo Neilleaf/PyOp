@@ -1,0 +1,114 @@
+{
+  "benchmark_id": "duplicates",
+  "input_size": 1000,
+  "repetitions": 7,
+  "warmups": 1,
+  "python_version": "3.12.1",
+  "schema_version": "1.0",
+  "status": "ok",
+  "variants": [
+    {
+      "name": "naive",
+      "correctness_verified": true,
+      "timing": {
+        "unit": "ns",
+        "samples_ns": [
+          2871800,
+          3023200,
+          2917400,
+          2786800,
+          2965400,
+          2908100,
+          2954500
+        ],
+        "median_ns": 2917400,
+        "min_ns": 2786800,
+        "max_ns": 3023200,
+        "mean_ns": 2918171.4285714286,
+        "stdev_ns": 69787.52885489978,
+        "mad_ns": 45600
+      },
+      "profile": [
+        {
+          "filename": "workloads.py",
+          "line": 10,
+          "function": "duplicates_naive",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 0.0029343000000000004,
+          "cumulative_time_seconds": 0.0030029
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<method 'append' of 'list' objects>",
+          "primitive_calls": 500,
+          "total_calls": 500,
+          "self_time_seconds": 6.86e-05,
+          "cumulative_time_seconds": 6.86e-05
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 1.52e-05,
+          "cumulative_time_seconds": 1.52e-05
+        }
+      ]
+    },
+    {
+      "name": "set_based",
+      "correctness_verified": true,
+      "timing": {
+        "unit": "ns",
+        "samples_ns": [
+          89200,
+          75300,
+          88200,
+          134200,
+          104800,
+          75600,
+          85500
+        ],
+        "median_ns": 88200,
+        "min_ns": 75300,
+        "max_ns": 134200,
+        "mean_ns": 93257.14285714286,
+        "stdev_ns": 19071.284108602136,
+        "mad_ns": 12600
+      },
+      "profile": [
+        {
+          "filename": "workloads.py",
+          "line": 19,
+          "function": "duplicates_set",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 0.0002635,
+          "cumulative_time_seconds": 0.0004991
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<method 'add' of 'set' objects>",
+          "primitive_calls": 1500,
+          "total_calls": 1500,
+          "self_time_seconds": 0.0002356,
+          "cumulative_time_seconds": 0.0002356
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 1.18e-05,
+          "cumulative_time_seconds": 1.18e-05
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,186 @@
+{
+  "benchmark_id": "fibonacci",
+  "input_size": 20,
+  "repetitions": 7,
+  "warmups": 1,
+  "python_version": "3.12.1",
+  "schema_version": "1.0",
+  "status": "ok",
+  "variants": [
+    {
+      "name": "naive",
+      "correctness_verified": true,
+      "timing": {
+        "unit": "ns",
+        "samples_ns": [
+          1077700,
+          1058400,
+          1049800,
+          1056900,
+          1078800,
+          1055200,
+          1076300
+        ],
+        "median_ns": 1058400,
+        "min_ns": 1049800,
+        "max_ns": 1078800,
+        "mean_ns": 1064728.5714285714,
+        "stdev_ns": 11433.998711326332,
+        "mad_ns": 8600
+      },
+      "profile": [
+        {
+          "filename": "workloads.py",
+          "line": 29,
+          "function": "fibonacci_naive",
+          "primitive_calls": 1,
+          "total_calls": 21891,
+          "self_time_seconds": 0.0058419000000000006,
+          "cumulative_time_seconds": 0.0058419000000000006
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 2.1300000000000003e-05,
+          "cumulative_time_seconds": 2.1300000000000003e-05
+        }
+      ]
+    },
+    {
+      "name": "memoized",
+      "correctness_verified": true,
+      "timing": {
+        "unit": "ns",
+        "samples_ns": [
+          14800,
+          8500,
+          8800,
+          7200,
+          8000,
+          7900,
+          14300
+        ],
+        "median_ns": 8500,
+        "min_ns": 7200,
+        "max_ns": 14800,
+        "mean_ns": 9928.57142857143,
+        "stdev_ns": 2962.486545220458,
+        "mad_ns": 600
+      },
+      "profile": [
+        {
+          "filename": "workloads.py",
+          "line": 35,
+          "function": "fibonacci_memoized",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 3.3e-06,
+          "cumulative_time_seconds": 4.2600000000000005e-05
+        },
+        {
+          "filename": "functools.py",
+          "line": 651,
+          "function": "cache",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 3.5000000000000004e-06,
+          "cumulative_time_seconds": 2.2800000000000002e-05
+        },
+        {
+          "filename": "workloads.py",
+          "line": 38,
+          "function": "calculate",
+          "primitive_calls": 1,
+          "total_calls": 21,
+          "self_time_seconds": 1.65e-05,
+          "cumulative_time_seconds": 1.65e-05
+        },
+        {
+          "filename": "functools.py",
+          "line": 518,
+          "function": "decorating_function",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 3.9e-06,
+          "cumulative_time_seconds": 1.54e-05
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 1.15e-05,
+          "cumulative_time_seconds": 1.15e-05
+        },
+        {
+          "filename": "functools.py",
+          "line": 35,
+          "function": "update_wrapper",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 5.9e-06,
+          "cumulative_time_seconds": 1.15e-05
+        },
+        {
+          "filename": "functools.py",
+          "line": 479,
+          "function": "lru_cache",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 2.8000000000000003e-06,
+          "cumulative_time_seconds": 3.9e-06
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<built-in method builtins.getattr>",
+          "primitive_calls": 8,
+          "total_calls": 8,
+          "self_time_seconds": 2.7e-06,
+          "cumulative_time_seconds": 2.7e-06
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<built-in method builtins.setattr>",
+          "primitive_calls": 6,
+          "total_calls": 6,
+          "self_time_seconds": 2.4000000000000003e-06,
+          "cumulative_time_seconds": 2.4000000000000003e-06
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 9.000000000000001e-07,
+          "cumulative_time_seconds": 9.000000000000001e-07
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<method 'update' of 'dict' objects>",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 5.000000000000001e-07,
+          "cumulative_time_seconds": 5.000000000000001e-07
+        },
+        {
+          "filename": "~",
+          "line": 0,
+          "function": "<built-in method builtins.callable>",
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "self_time_seconds": 2.0000000000000002e-07,
+          "cumulative_time_seconds": 2.0000000000000002e-07
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
